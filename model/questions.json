@@ -1,0 +1,45 @@
+{
+    "addMember": {
+        "type": "input",
+        "message": "Enter team member's name",
+        "name": "name"
+    },
+    "selectMember": {
+        "type": "list",
+        "message": "Select team member's role",
+        "choices": ["Engineer", "Intern", "Manager"],
+        "name": "role"
+    },
+    "selectMemberId": {
+        "type": "input",
+        "message": "Enter team member's id",
+        "default": "0",
+        "name": "id"
+    },
+    "enterMemberEmail": {
+        "type": "input",
+        "message": "Enter team member's email address",
+        "name": "email"
+    },
+    "manager": {
+        "type": "input",
+        "message": "Enter team member's office phone number",
+        "name": "officePhoneNumber"
+    },
+    "engineer": {
+        "type": "input",
+        "message": "Enter team member's GitHub username",
+        "name": "gitHubUserName"
+    },
+    "intern": {
+        "type": "input",
+        "message": "Enter team member's school name",
+        "name": "schoolName"
+    },
+    "moreMembers": {
+        "type": "list",
+        "message": "Would you like to add more team members?",
+        "choices": ["yes", "no"],
+        "name": "moreMembers"
+    }
+}
