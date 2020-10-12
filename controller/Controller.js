@@ -32,7 +32,7 @@ module.exports = class Controller {
 
     async addMember() {
         try {
-            const { name, role, id, email } = await print.questions([
+            const { name, id, email, role } = await print.questions([
                 questions.addMember(),
                 questions.selectMember(),
                 questions.selectMemberId(),
@@ -40,7 +40,7 @@ module.exports = class Controller {
             ]);
 
             const factory = new Factory();
-            return factory.getEmployeesFactory(name, role, id, email);
+            return factory.getEmployeesFactory(name, id, email, role);
         } catch (err) {
             print.errStack(err);
         }
@@ -76,25 +76,32 @@ module.exports = class Controller {
 };
 
 class Factory {
-    async getEmployeesFactory(name, role, id, email) {
+    async getEmployeesFactory(name, id, email, role) {
         let member;
         let answer;
         try {
             switch (role) {
                 case "Engineer":
-                    member = new Engineer(name, role, id, email);
                     answer = await print.questions([questions.engineer()]);
-                    member.githubProperty = answer.gitHubUserName;
+                    member = new Engineer(
+                        name,
+                        id,
+                        email,
+                        answer.gitHubUserName
+                    );
                     break;
                 case "Intern":
-                    member = new Intern(name, role, id, email);
                     answer = await print.questions([questions.intern()]);
-                    member.schoolProperty = answer.schoolName;
+                    member = new Intern(name, id, email, answer.schoolName);
                     break;
                 case "Manager":
-                    member = new Manager(name, role, id, email);
                     answer = await print.questions([questions.manager()]);
-                    member.officeNumberProperty = answer.officePhoneNumber;
+                    member = new Manager(
+                        name,
+                        id,
+                        email,
+                        answer.officePhoneNumber
+                    );
                     break;
             }
         } catch (err) {

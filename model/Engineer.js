@@ -1,18 +1,21 @@
 const Employee = require("../model/Employee");
 module.exports = class Engineer extends Employee {
-    constructor(name, role, email, id) {
-        super(name, role, email, id);
+    constructor(name, id, email, github) {
+        super(name, id, email);
         this.template = "engineer.html";
+        this.github = github;
+        this.role = "Engineer";
     }
 
     getTemplate() {
         return this.template;
     }
 
-    get githubProperty() {
-        return this.github;
+    getRole() {
+        return this.role;
     }
-    set githubProperty(value) {
-        this.github = value;
+
+    getGithub() {
+        return this.github;
     }
 };

@@ -1,24 +1,26 @@
 {
-  "name": "team-profile-generator",
-  "version": "1.0.0",
-  "description": "Template Engine - Employee Summary",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/VolodymyrBaisa/Team-Profile-Generator.git"
-  },
-  "author": "Volodymyr Baisa",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/VolodymyrBaisa/Team-Profile-Generator/issues"
-  },
-  "homepage": "https://github.com/VolodymyrBaisa/Team-Profile-Generator#readme",
-  "dependencies": {
-    "inquirer": "^7.3.3",
-    "jest": "^26.5.2",
-    "nodemon": "^2.0.4"
-  }
+    "name": "team-profile-generator",
+    "version": "1.0.0",
+    "description": "Template Engine - Employee Summary",
+    "main": "server.js",
+    "scripts": {
+        "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/VolodymyrBaisa/Team-Profile-Generator.git"
+    },
+    "author": "Volodymyr Baisa",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/VolodymyrBaisa/Team-Profile-Generator/issues"
+    },
+    "homepage": "https://github.com/VolodymyrBaisa/Team-Profile-Generator#readme",
+    "dependencies": {
+        "inquirer": "^7.3.3",
+        "nodemon": "^2.0.4"
+    },
+    "devDependencies": {
+        "jest": "^26.5.3"
+    }
 }

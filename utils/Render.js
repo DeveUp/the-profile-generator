@@ -3,6 +3,7 @@ const path = require("path");
 
 module.exports = class Render {
     replacePlaceholders(template, placeholder, value) {
+        console.log(placeholder, value);
         const pattern = new RegExp("{{ " + placeholder + " }}", "gm");
         return template.replace(pattern, value);
     }
