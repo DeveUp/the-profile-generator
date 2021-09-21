@@ -2,8 +2,8 @@ const Employee = require('./Employee.js');
 
 class Engineer extends Employee {
 
-    constructor(name, id, email, github) {
-        super(name, id, email, "Engineer", "engineer.html");
+    constructor(name, id, email, image, github) {
+        super(name, id, email, image, "Engineer", "engineer.html");
         this.github = github;
     }
 

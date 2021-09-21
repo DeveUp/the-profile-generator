@@ -16,6 +16,12 @@
         "default": "0",
         "name": "id"
     },
+    "selectImage": {
+        "type": "input",
+        "message": "URL Image",
+        "default": "http://uxpanol.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png",
+        "name": "image"
+    },
     "enterMemberEmail": {
         "type": "input",
         "message": "Enter team member's email address",

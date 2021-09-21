@@ -4,10 +4,11 @@
  */
 class Employee {
 
-    constructor(name, id, email, role = "Employee", template = null) {
+    constructor(name, id, email, image, role = "Employee", template = null) {
         this.name = name;
         this.id = id;
         this.email = email;
+        this.image = image;
         this.role = role;
         this.template = template;
     }
@@ -26,6 +27,14 @@ class Employee {
 
     setEmail(email) {
         this.email = email;
+    }
+
+    getImage() {
+        return this.image;
+    }
+
+    setImage(image) {
+        this.image = image;
     }
 
     getId() {

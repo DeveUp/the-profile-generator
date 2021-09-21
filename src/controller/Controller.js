@@ -30,13 +30,14 @@ class Controller {
 
     async addMember() {
         try {
-            const { name, id, email, role } = await this.print.questions([
+            const { name, id, email, role, image } = await this.print.questions([
                 this.questions.addMember(),
                 this.questions.selectMember(),
                 this.questions.selectMemberId(),
                 this.questions.enterMemberEmail(),
+                this.questions.selectImage(),
             ]);
-            return this.getEmployeesFactory(name, id, email, role);
+            return this.getEmployeesFactory(name, id, email, role, image);
         } catch (err) {
             this.print.errStack(err);
         }
@@ -70,7 +71,7 @@ class Controller {
         return this.render.replacePlaceholders(template, "team", html);
     }
 
-    async getEmployeesFactory(name, id, email, role) {
+    async getEmployeesFactory(name, id, email, role, image) {
         let member;
         let answer;
         try {
@@ -81,12 +82,19 @@ class Controller {
                         name,
                         id,
                         email,
+                        image,
                         answer.gitHubUserName
                     );
                     break;
                 case "Intern":
                     answer = await this.print.questions([this.questions.intern()]);
-                    member = new Intern(name, id, email, answer.schoolName);
+                    member = new Intern(
+                        name, 
+                        id, 
+                        email, 
+                        image,
+                        answer.schoolName
+                    );
                     break;
                 case "Manager":
                     answer = await this.print.questions([this.questions.manager()]);
@@ -94,6 +102,7 @@ class Controller {
                         name,
                         id,
                         email,
+                        image,
                         answer.officePhoneNumber
                     );
                     break;

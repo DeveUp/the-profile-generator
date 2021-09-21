@@ -36,6 +36,10 @@ class Questions {
         return this.JSON.selectMemberId;
     }
 
+    selectImage(){
+        return this.JSON.selectImage;
+    }
+
     enterMemberEmail() {
         const email = this.JSON.enterMemberEmail;
         email.validate = "validate";
