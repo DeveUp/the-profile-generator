@@ -1,7 +1,11 @@
 const fs = require("fs");
 const path = require("path");
 
-module.exports = class Render {
+class Render {
+    
+    constructor(){
+    }
+
     replacePlaceholders(template, placeholder, value) {
         console.log(placeholder, value);
         const pattern = new RegExp("{{ " + placeholder + " }}", "gm");
@@ -12,3 +16,5 @@ module.exports = class Render {
         return fs.readFileSync(path.resolve(templatesDir, template), "utf8");
     }
 };
+
+module.exports = Render;

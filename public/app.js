@@ -1,7 +1,6 @@
 const Controller = require('../src/controller/Controller.js');
 const File = require('../src/util/File');
 
-
 const controller = new Controller();
 const file = new File();
 
