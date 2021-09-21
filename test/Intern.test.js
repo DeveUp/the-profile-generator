@@ -1,4 +1,4 @@
-const Intern = require("../model/Intern");
+const Intern = require("../src/model/Intern");
 
 test("Can set school via constructor", () => {
     const testValue = "UCLA";
