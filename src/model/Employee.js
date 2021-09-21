@@ -4,10 +4,12 @@
  */
 class Employee {
 
-    constructor(name, id, email) {
+    constructor(name, id, email, role = "Employee", template = null) {
         this.name = name;
         this.id = id;
         this.email = email;
+        this.role = role;
+        this.template = template;
     }
 
     getName() {
@@ -35,13 +37,20 @@ class Employee {
     }
 
     getRole() {
-        this.role = this.role ?? "Employee";
         return this.role;
     }
 
     setRole(role) {
         this.role = role;
     }
+
+    getTemplate() {
+        return this.template;
+    }
+
+    setTemplate(template) {
+        this.template = template;
+    }
 };
 
-export default Employee;
+module.exports= Employee;

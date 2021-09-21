@@ -1,10 +1,19 @@
-import Print from '../util/Print';
-import JSON from '../../public/json/question.json';
+const fs = require("fs");
+const path = require("path");
+
+const Print = require('../util/Print.js');
 
 class Questions {
 
     constructor(){
         this.print = new Print();
+        this.JSON = this.json();
+    }
+
+    json(){
+        const questionsFile = path.resolve(__dirname, "../../public/json/question.json");
+        const questions = fs.readFileSync(questionsFile);
+        return JSON.parse(questions);
     }
 
     addMember() {
@@ -55,4 +64,4 @@ class Questions {
     }
 };
 
-export default Questions;
+module.exports= Questions;

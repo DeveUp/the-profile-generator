@@ -1,19 +1,9 @@
-import Employee from './Employee';
+const Employee = require('./Employee.js');
 
 class Manager extends Employee {
     constructor(name, id, email, officeNumber) {
-        super(name, id, email);
+        super(name, id, email, "Manager", "manager.html");
         this.officeNumber = officeNumber;
-        this.setRole("Manager");
-    }
-
-    getTemplate() {
-        this.template = this.template ?? "manager.html";
-        return this.template;
-    }
-
-    setTemplate(template) {
-        this.template = template;
     }
 
     getOfficeNumber() {
@@ -25,4 +15,4 @@ class Manager extends Employee {
     }
 };
 
-export default Manager;
+module.exports= Manager;

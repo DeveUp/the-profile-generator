@@ -6,7 +6,7 @@ const print = new Print();
 
 const templatesDir = path.resolve(__dirname, "../out");
 
-module.exports = class File {
+class File {
     async writeToFileAsync(fileName, data) {
         return await fs.writeFile(
             path.resolve(templatesDir, fileName),
@@ -23,3 +23,5 @@ module.exports = class File {
         );
     }
 };
+
+export default File;

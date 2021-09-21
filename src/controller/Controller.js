@@ -1,16 +1,20 @@
 const path = require("path");
+const Render = require("../util/Render");
+const Print = require("../util/Print");
+const Questions = require("../model/Questions");
+
 const templatesDir = path.resolve(__dirname, "../view");
 
 //Utils
-const Render = require("../util/Render");
+
 const render = new Render();
 
 //View
-const Print = require("../view/Print");
+
 const print = new Print();
 
 //Model
-const Questions = require("../model/Questions");
+
 const questions = new Questions();
 
 const Employee = require("../model/Employee");
@@ -18,7 +22,7 @@ const Engineer = require("../model/Engineer");
 const Intern = require("../model/Intern");
 const Manager = require("../model/Manager");
 
-module.exports = class Controller {
+class Controller {
     async renderQuestions() {
         const employees = [];
         let newMember;
@@ -75,39 +79,4 @@ module.exports = class Controller {
     }
 };
 
-class Factory {
-    async getEmployeesFactory(name, id, email, role) {
-        let member;
-        let answer;
-        try {
-            switch (role) {
-                case "Engineer":
-                    answer = await print.questions([questions.engineer()]);
-                    member = new Engineer(
-                        name,
-                        id,
-                        email,
-                        answer.gitHubUserName
-                    );
-                    break;
-                case "Intern":
-                    answer = await print.questions([questions.intern()]);
-                    member = new Intern(name, id, email, answer.schoolName);
-                    break;
-                case "Manager":
-                    answer = await print.questions([questions.manager()]);
-                    member = new Manager(
-                        name,
-                        id,
-                        email,
-                        answer.officePhoneNumber
-                    );
-                    break;
-            }
-        } catch (err) {
-            print.errStack(err);
-        }
-
-        return member;
-    }
-}
+module.exports= Controller;

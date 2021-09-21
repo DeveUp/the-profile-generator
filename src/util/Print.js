@@ -1,28 +1,33 @@
 const chalk = require("chalk");
 const inquirer = require("inquirer");
 
-const errorStyle = chalk.bold.red;
-const successStyle = chalk.bold.green;
-const infoStyle = chalk.bold.blue;
+class Print {
 
-module.exports = class Print {
+    constructor() {
+        this.errorStyle = chalk.bold.red;
+        this.successStyle = chalk.bold.green;
+        this.infoStyle = chalk.bold.blue;
+    }
+
     errMsg(msg) {
-        console.log(errorStyle(msg));
+        console.log(this.errorStyle(msg));
     }
 
     errStack(msg) {
-        console.log(errorStyle(msg.stack));
+        console.log(this.errorStyle(msg.stack));
     }
 
     success(msg) {
-        console.log(successStyle(msg));
+        console.log(this.successStyle(msg));
     }
 
     info(msg) {
-        console.log(infoStyle(msg));
+        console.log(this.infoStyle(msg));
     }
 
     async questions(questions) {
         return await inquirer.prompt(questions);
     }
 };
+
+module.exports = Print;
