@@ -1,6 +1,6 @@
 const fs = require("fs").promises;
 const path = require("path");
-const Print = require("../view/Print");
+const Print = require("../../view/Print");
 
 const print = new Print();
 

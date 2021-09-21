@@ -2,7 +2,7 @@ const path = require("path");
 const templatesDir = path.resolve(__dirname, "../view");
 
 //Utils
-const Render = require("../utils/Render");
+const Render = require("../util/Render");
 const render = new Render();
 
 //View
