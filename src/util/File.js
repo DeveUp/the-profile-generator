@@ -1,22 +1,24 @@
 const fs = require("fs").promises;
 const path = require("path");
-const Print = require("../../view/Print");
 
-const print = new Print();
-
-const templatesDir = path.resolve(__dirname, "../out");
+const Print = require("./Print");
 
 class File {
+
+    constructor(){
+        this.print = new Print();
+        this.templatesDir = path.resolve(__dirname, "../../public");
+    }
+
     async writeToFileAsync(fileName, data) {
         return await fs.writeFile(
-            path.resolve(templatesDir, fileName),
+            path.resolve(this.templatesDir, fileName),
             data,
             (err) => {
                 if (err) {
-                    print.err(err);
+                    this.print.err(err);
                 }
-
-                print.success(
+                this.print.success(
                     `Success! Your ${fileName} file has been generated`
                 );
             }
@@ -24,4 +26,4 @@ class File {
     }
 };
 
-export default File;
+module.exports= File;
