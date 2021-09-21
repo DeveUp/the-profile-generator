@@ -1,21 +1,29 @@
-const Employee = require("../model/Employee");
-module.exports = class Engineer extends Employee {
+import Employee from './Employee';
+
+class Engineer extends Employee {
+
     constructor(name, id, email, github) {
         super(name, id, email);
-        this.template = "engineer.html";
         this.github = github;
-        this.role = "Engineer";
+        this.setRole("Engineer");
     }
 
     getTemplate() {
+        this.template = this.template ?? "engineer.html";
         return this.template;
     }
 
-    getRole() {
-        return this.role;
+    setTemplate(template) {
+        this.template = template;
     }
 
     getGithub() {
         return this.github;
     }
+
+    setGithub(github) {
+        this.github = github;
+    }
 };
+
+export default Engineer;

@@ -1,17 +1,14 @@
-const fs = require("fs");
-const path = require("path");
+import Print from '../util/Print';
+import JSON from '../../public/json/question.json';
 
-//View
-const Print = require("../view/Print");
-const print = new Print();
+class Questions {
 
-const questionsFile = path.resolve(__dirname, "questions.json");
-const questions = fs.readFileSync(questionsFile);
-const questionsJson = JSON.parse(questions);
+    constructor(){
+        this.print = new Print();
+    }
 
-module.exports = class Questions {
     addMember() {
-        const member = questionsJson.addMember;
+        const member = JSON.addMember;
         member.validate = "validate";
         member["validate"] = (answer) => {
             if (answer.length <= 1) {
@@ -23,37 +20,39 @@ module.exports = class Questions {
     }
 
     selectMember() {
-        return questionsJson.selectMember;
+        return JSON.selectMember;
     }
 
     selectMemberId() {
-        return questionsJson.selectMemberId;
+        return JSON.selectMemberId;
     }
 
     enterMemberEmail() {
-        const email = questionsJson.enterMemberEmail;
+        const email = JSON.enterMemberEmail;
         email.validate = "validate";
         email["validate"] = (answer) => {
             if (answer.length < 1 || !answer.includes("@"))
                 return print.errMsg("A valid email address is required.");
             return true;
         };
-        return questionsJson.enterMemberEmail;
+        return JSON.enterMemberEmail;
     }
 
     manager() {
-        return questionsJson.manager;
+        return JSON.manager;
     }
 
     engineer() {
-        return questionsJson.engineer;
+        return JSON.engineer;
     }
 
     intern() {
-        return questionsJson.intern;
+        return JSON.intern;
     }
 
     moreMembers() {
-        return questionsJson.moreMembers;
+        return JSON.moreMembers;
     }
 };
+
+export default Questions;
